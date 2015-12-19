@@ -1,0 +1,14 @@
+{
+  "name": "DemoSocketIO",
+  "version": "0.0.0",
+  "description": "DemoSocketIO",
+  "main": "app.js",
+  "author": {
+    "name": "Admin",
+    "email": "hainh2k3@gmail.com"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  }
+}

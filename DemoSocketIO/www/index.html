@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="socket.io.js"></script>
+
+
+</head>
+<body>
+    <input type="text" id="message_input" />
+    <button onclick="sendMessage()">send</button>
+    <div id="chatlog"></div>
+
+    <script type="text/javascript">
+        var socketio = io.connect("localhost:8000");
+        socketio.on("tn_den_client", function (data) {
+            document.getElementById("chatlog").innerHTML = ("<hr/>" + data.thoigian + ':' +
+            data.tinnhan + document.getElementById("chatlog").innerHTML);
+            //document.getElementById("chatlog").innerHTML = ("<hr/>" + data['thoigian'] + ':' +
+            //data['message'] + document.getElementById("chatlog").innerHTML);
+        });
+
+        function sendMessage() {
+            var msg = document.getElementById("message_input").value;
+            socketio.emit("tn_den_server", { message: msg });
+        }
+
+    </script>
+
+</body>
+</html>
